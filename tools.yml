@@ -2,4 +2,4 @@
   hosts: all
   become: yes
   role:
-    - {{ tool_name }}
+    - "{{ tool_name }}"

@@ -1,10 +1,10 @@
 [Unit]
-Description = Backend Service
+Description = Prometheus server service
 
 [Service]
 User=bin
-ExecStart=/opt/prometheus-2.45.5.linux-amd64
-SyslogIdentifier=backend
+ExecStart=/opt/prometheus-{{ version }}.linux-amd64/prometheus
+SyslogIdentifier=prometheus
 
 [Install]
 WantedBy=multi-user.target

@@ -41,6 +41,6 @@ resource "aws_iam_role" "test_role" {
 }
 
 resource "aws_iam_instance_profile" "test_profile" {
-  name = "${var.tool_name}-profile"
+  name = "${var.tool_name}-role"
   role = aws_iam_role.test_role.name
 }

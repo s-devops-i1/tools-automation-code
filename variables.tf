@@ -7,7 +7,8 @@ variable "zone_id" {
 variable "instance_type" {
   default = {
     prometheus = {
-      instance_type = "t3.micro"
+      instance_type         = "t3.micro"
+      policy-resource-list  = ["ec2:DescribeInstances"]
     }
   }
 }

@@ -1,3 +1,5 @@
+- name: Set prompt
+  ansible.builtin.shell: set-prompt Prometheus
 - name: Download Prometheus
   ansible.builtin.unarchive:
     src: https://github.com/prometheus/prometheus/releases/download/v{{ version }}/prometheus-{{ version }}.linux-amd64.tar.gz
@@ -9,6 +11,12 @@
   ansible.builtin.template:
     src: prometheus.service
     dest: /etc/systemd/system/prometheus.service
+
+- name: Copy config file
+  ansible.builtin.template:
+    src: prometheus.yml
+    dest: /opt/prometheus-{{ version }}.linux-amd64/prometheus
+
 
 - name: start prometheus
   ansible.builtin.systemd_service:

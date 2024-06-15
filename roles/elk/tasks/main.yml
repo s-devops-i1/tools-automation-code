@@ -23,7 +23,7 @@
     name: kibana
     state: installed
 
-- name: Update kibana server host
+- name: Update Kibana Config IP line
   ansible.builtin.lineinfile:
     path: /etc/kibana/kibana.yml
     regexp: '^#server.host: localhost'

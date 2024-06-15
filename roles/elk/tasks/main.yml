@@ -14,7 +14,7 @@
 - name: start elasticsearch
   ansible.builtin.systemd_service:
     name: elasticsearch
-    state: started
+    state: restarted
     enabled: true
     daemon-reload: true
 
@@ -23,4 +23,21 @@
     name: kibana
     state: installed
 
+- name: Update kibana server host
+  ansible.builtin.lineinfile:
+    path: /etc/kibana/kibana.yml
+    regexp: '^#server.host: localhost'
+    line: "server.host: 0.0.0.0"
 
+- name: Update kibana server port
+  ansible.builtin.lineinfile:
+    path: /etc/kibana/kibana.yml
+    regexp: '^#server.port: 5601'
+    line: "server.port: 5601"
+
+- name: start kibana
+  ansible.builtin.systemd_service:
+    name: kibana
+    state: restarted
+    enabled: true
+    daemon-reload: true

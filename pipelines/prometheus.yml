@@ -1,6 +1,6 @@
 format_version: 10
 pipelines:
-  prometheus:
+  elk:
     group: Tools
     materials:
       git-da613e5:
@@ -16,4 +16,4 @@ pipelines:
           jobs:
             ansible:
               tasks:
-                - exec: {command: ansible-playbook, arguments: [ "-i", "prometheus.shujathdevops.online,", "tools.yml", "-e", "tool_name=prometheus", "-e", "ansible_user=ec2-user", "-e", "ansible_password=DevOps321" ], run_if: passed}
+                - exec: {command: ansible-playbook, arguments: [ "-i", "prometheus-internal.shujathdevops.online,", "tools.yml", "-e", "tool_name=prometheus", "-e", "ansible_user=ec2-user", "-e", "ansible_password=DevOps321" ], run_if: passed}

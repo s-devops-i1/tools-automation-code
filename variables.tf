@@ -18,6 +18,10 @@ variable "tools" {
       instance_type        = "r7i.large"
       policy-resource-list = []
     }
+    ci-server = {
+      instance_type        = "r7i.large"
+      policy-resource-list = []
+    }
   }
 }
 variable "zone_id" {

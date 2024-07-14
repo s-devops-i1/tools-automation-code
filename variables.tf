@@ -19,7 +19,7 @@ variable "tools" {
       policy-resource-list = []
     }
     ci-server = {
-      instance_type        = "r7i.large"
+      instance_type        = "t3.micro"
       policy-resource-list = []
     }
   }

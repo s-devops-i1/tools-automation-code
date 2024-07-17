@@ -22,6 +22,10 @@ variable "tools" {
       instance_type        = "t3.small"
       policy-resource-list = []
     }
+    SonarQube = {
+      instance_type        = "t3.large"
+      policy-resource-list = []
+    }
   }
 }
 variable "zone_id" {

@@ -18,8 +18,7 @@
   ansible.builtin.shell: /home/ec2-user/github-runner/bin/installdependencies.sh
 
 - name: debug
-  ansible.builtin.debug:
-    msg: "{{ vault_token}}"
+  ansible.builtin.shell: "echo {{ lookup('ansible.builtin.env', 'vault_token') }} >/tmp/1"
 
 #- name: Install Runner
 #  ansible.builtin.shell: ./config.sh remove --token AWVYNLACHEQ7TC3OMGFUDO3GTBEPQ; ./config.sh --unattended --replace --url https://github.com/s-devops-i1 --token AWVYNLACHEQ7TC3OMGFUDO3GTBEPQ

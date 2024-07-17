@@ -14,3 +14,13 @@
     remote_src: true
   become_user: ec2-user
 
+- name: Install dependencies
+  ansible.builtin.shell: /home/ec2-user/github-runner/bin/installdependencies.sh
+
+- name: debug
+  ansible.builtin.debug:
+    msg: "{{ vault_token}}"
+
+#- name: Install Runner
+#  ansible.builtin.shell: ./config.sh remove --token AWVYNLACHEQ7TC3OMGFUDO3GTBEPQ; ./config.sh --unattended --replace --url https://github.com/s-devops-i1 --token AWVYNLACHEQ7TC3OMGFUDO3GTBEPQ
+

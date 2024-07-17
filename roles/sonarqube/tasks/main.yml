@@ -7,7 +7,23 @@
 
 - name: Install Java17
   ansible.builtin.dnf:
-    name:
+    name: java-17-openjdk.x86_64
     state: installed
+
+- name: Create a directory
+  ansible.builtin.file:
+    path: /opt/sonarqube
+    state: directory
+    owner: sonar
+    group: sonar
+
+- name: Download and Extract SonarQube
+  ansible.builtin.unarchive:
+    src: https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-10.6.0.92116.zip
+    dest: /opt/sonarqube
+    remote_src: yes
+  become_user: sonar
+
+
 
 

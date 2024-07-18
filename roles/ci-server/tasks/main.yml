@@ -19,7 +19,7 @@
 
 - name: debug
   ansible.builtin.debug:
-   msg: "{{ lookup('ansible.builtin.env', 'vault_token') }} "
+   msg: "{{secrets.GITHUB_RUNNER_TOKEN}}"
 
 #- name: Install Runner
 #  ansible.builtin.shell: ./config.sh remove --token AWVYNLACHEQ7TC3OMGFUDO3GTBEPQ; ./config.sh --unattended --replace --url https://github.com/s-devops-i1 --token AWVYNLACHEQ7TC3OMGFUDO3GTBEPQ

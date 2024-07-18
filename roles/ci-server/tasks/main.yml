@@ -43,3 +43,15 @@
   ansible.builtin.dnf:
    name: nodejs
    state: installed
+
+- name: Install Java17
+  ansible.builtin.dnf:
+    name: java-17-openjdk.x86_64
+    state: installed
+
+- name: Download and Extract Sonarscanner
+  ansible.builtin.unarchive:
+    src: https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-6.1.0.4477-linux-x64.zip
+    dest: /opt/sonarscanner
+    remote_src: yes
+

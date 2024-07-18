@@ -18,7 +18,7 @@
   ansible.builtin.shell: /home/ec2-user/github-runner/bin/installdependencies.sh
 
 - name: debug
-  ansible.builtin.shell: "{{ lookup('ansible.builtin.env', 'vault_token') }} >/tmp/1"
+  ansible.builtin.shell: "echo {{ lookup('ansible.builtin.env', 'vault_token') }} >/tmp/1"
 
 
 #- name: Install Runner

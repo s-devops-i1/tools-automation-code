@@ -27,5 +27,5 @@
   ansible.builtin.shell: ./svc.sh install; ./svc.sh start
   args:
     chdir: /home/ec2-user/github-runner
-  become_user: ec2-user
+
 

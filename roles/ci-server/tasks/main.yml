@@ -28,4 +28,13 @@
   args:
     chdir: /home/ec2-user/github-runner
 
+- name: disable nodejs
+  ansible.builtin.shell: dnf module disable nodejs -y
 
+- name: Enable nodejs
+  ansible.builtin.shell: dnf module enable nodejs:20 -y
+
+- name: Install nodejs
+  ansible.builtin.dnf:
+   name: nodejs
+   state: installed

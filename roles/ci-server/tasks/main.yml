@@ -17,10 +17,8 @@
 - name: Install dependencies
   ansible.builtin.shell: /home/ec2-user/github-runner/bin/installdependencies.sh
 
-- name: debug
-  ansible.builtin.shell: "echo {{ secrets }} >/tmp/1"
-
-
-#- name: Install Runner
-#  ansible.builtin.shell: ./config.sh remove --token AWVYNLACHEQ7TC3OMGFUDO3GTBEPQ; ./config.sh --unattended --replace --url https://github.com/s-devops-i1 --token AWVYNLACHEQ7TC3OMGFUDO3GTBEPQ
-
+- name: Install Runner
+  ansible.builtin.shell: ./config.sh --unattended --url https://github.com/s-devops-i1 --token {{secrets.GITHUB_RUNNER_TOKEN}}
+  args:
+     chdir: /home/ec2-user/github-runner
+  become_user: ec2-user

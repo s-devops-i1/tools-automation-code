@@ -1,0 +1,2 @@
+- name: set prompt for Jenkins
+  ansible.builtin.shell: set-prompt Jenkins

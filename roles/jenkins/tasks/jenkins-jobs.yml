@@ -1,3 +1,8 @@
+- name: Install python-jenkins
+  ansible.builtin.pip:
+    name: python-jenkins
+    executable: pip3.11
+
 - name: Create Jobs
   community.general.jenkins_job:
    config: "{{ lookup('file', 'templates/jobs/pipeline.xml') }}"

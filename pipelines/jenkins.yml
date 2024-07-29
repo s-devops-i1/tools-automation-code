@@ -1,6 +1,6 @@
 format_version: 10
 pipelines:
-  ci-server:
+  Jenkins:
     group: Tools
     materials:
       git-da613e5:

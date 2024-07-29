@@ -10,7 +10,7 @@ println "--> creating admin user"
 //def adminPassword = System.getenv("ADMIN_PASSWORD")
 
 def adminUsername = "{{secrets.jenkins_user}}"
-def adminPassword = "{{{secrets.jenkins_password}}"
+def adminPassword = "{{secrets.jenkins_password}}"
 
 assert adminPassword != null : "No ADMIN_USERNAME env var provided, but required"
 assert adminPassword != null : "No ADMIN_PASSWORD env var provided, but required"

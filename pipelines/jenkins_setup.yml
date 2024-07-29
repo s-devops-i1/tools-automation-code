@@ -1,6 +1,6 @@
 format_version: 10
 pipelines:
-  Jenkins:
+  Jenkins_setup:
     group: Tools
     materials:
       git-da613e5:
@@ -18,4 +18,4 @@ pipelines:
           jobs:
             ansible:
               tasks:
-                - exec: {command: ansible-playbook, arguments: [ "-i", "jenkins-internal.shujathdevops.online,", "tools.yml", "-e", "tool_name=jenkins", "-e", "ansible_user=ec2-user", "-e", "ansible_password=DevOps321" ], run_if: passed}
+                - exec: {command: ansible-playbook, arguments: [ "-i", "jenkins-internal.shujathdevops.online,", "tools.yml", "-e", "tool_name=jenkins", "-e", "ansible_user=ec2-user", "-e", "ansible_password=DevOps321", "-e","jenkins_setup=true" ], run_if: passed}

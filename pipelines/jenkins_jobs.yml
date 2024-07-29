@@ -1,0 +1,21 @@
+format_version: 10
+pipelines:
+  Jenkins_jobs:
+    group: Tools
+    materials:
+      git-da613e5:
+        git: https://github.com/s-devops-i1/tools-automation-code.git
+        shallow_clone: false
+        auto_update: true
+        branch: main
+    secure_variables:
+      vault_token: AES:NJL2N1fIqEU8JUAOUDqu9A==:Qx4gcAcAcpxwUPBHQyQNqUWkoOzmGtxxpOpw76G2XfQ=
+    stages:
+      - Ansible:
+          fetch_materials: true
+          approval:
+            type: manual
+          jobs:
+            ansible:
+              tasks:
+                - exec: {command: ansible-playbook, arguments: [ "-i", "jenkins-internal.shujathdevops.online,", "tools.yml", "-e", "tool_name=jenkins", "-e", "ansible_user=ec2-user", "-e", "ansible_password=DevOps321", "-e","jenkins_setup=true", "-e", "jenkins_jobs=true" ], run_if: passed}

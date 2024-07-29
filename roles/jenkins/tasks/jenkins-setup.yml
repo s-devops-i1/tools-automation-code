@@ -19,7 +19,7 @@
     path: /var/lib/jenkins/init.groovy.d
     state: directory
 
-- name: Copy init script
+- name: Copy init scripts
   ansible.builtin.template:
     src: "{{item}}.groovy"
     dest: /var/lib/jenkins/init.groovy.d/{{item}}.groovy
@@ -27,6 +27,7 @@
     - 01-wizard
     - 02-admin-user
     - 03-plugins
+
 
 - name: start jenkins
   ansible.builtin.systemd_service:

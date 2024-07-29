@@ -3,7 +3,7 @@
     file: jenkins-setup.yaml
   when: jenkins-setup | bool
 
-- name: Jenkins Setup
+- name: Jenkins Jobs
   ansible.builtin.include_tasks:
     file: jenkins-jobs.yaml
   when: jenkins-jobs | bool

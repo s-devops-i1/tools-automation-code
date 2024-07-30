@@ -10,10 +10,11 @@
   loop:
     - frontend
     - backend
+  delegate_to: localhost
 
 - name: Create Jobs
   community.general.jenkins_job:
-   config: /tmp/{{item}}.xml
+   config: "{{ lookup('file', '/tmp/{{item}}.xml') }}"
    name: "{{item}}"
    password: "{{secrets.jenkins_password}}"
    url: http://jenkins-internal.shujathdevops.online:8080
